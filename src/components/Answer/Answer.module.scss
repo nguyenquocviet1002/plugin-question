@@ -1,0 +1,35 @@
+.item {
+  width: calc(50% - 16px);
+  margin: 8px;
+  border: 1px solid #0075df;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  font-size: 17px;
+  @media (max-width: 550px) {
+    width: 100%;
+    margin: 4px;
+  }
+}
+.input {
+  border: 1px solid #767676;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  border: 1px solid #767676;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  -webkit-appearance: none;
+  &:checked {
+    background: url("../../assets/check.png") center 0 no-repeat;
+    background-color: #0075ff;
+    background-size: 100%;
+  }
+}
+.label {
+  flex: 1;
+  font-weight: 500;
+  font-size: 15px;
+}
