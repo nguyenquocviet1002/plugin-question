@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=https://benhvienthammykangnam.vn/wp-content/plugins/sheet-api/dist/",
     "lint": "eslint .",
     "preview": "vite preview"
   },

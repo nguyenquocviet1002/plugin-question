@@ -9,9 +9,10 @@ import Result from "./components/Result";
 function App() {
   const queryParameters = new URLSearchParams(window.location.search);
   const id = queryParameters.get("id");
-  const queryURL = window.location.pathname;
+  // const queryURL = window.location.pathname;
   // const cate = queryURL.split("/")[1];
-  const cate = "Tình trạng răng";
+  // const cate = "Tình trạng răng";
+  const cate = queryParameters.get("q");
 
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
@@ -23,7 +24,7 @@ function App() {
     getQuestion()
       .then((response) => {
         const dataAll = response;
-        const dataFilter = dataAll.filter((item) => item.toppic === cate);
+        const dataFilter = dataAll.filter((item) => item.slug === cate);
         setData(dataFilter);
       })
       .catch((error) => console.log(error));
@@ -53,9 +54,8 @@ function App() {
     setValue(value);
   };
 
-  return data.length > 0 ? (
+  return (data.length > 0 || id)? (
     <div className="question">
-      <div className="container">
         <div className="question__box">
           {data.length > 0 && !id ? (
             <>
@@ -88,11 +88,10 @@ function App() {
             Object.keys(result).length > 0 && <Result data={result} />
           )}
         </div>
-      </div>
     </div>
   ) : (
     <div className="question">
-      <div className="container" style={{ textAlign: "center" }}>
+      <div style={{ textAlign: "center" }}>
         <p>Không có dữ liệu</p>
       </div>
     </div>
